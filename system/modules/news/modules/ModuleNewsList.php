@@ -134,7 +134,7 @@ class ModuleNewsList extends \ModuleNews
 
 			// Set limit and offset
 			$limit = $this->perPage;
-			$offset += (max($page, 1) - 1) * $this->perPage;
+			$offset = ($offset > 0 ? 0 : $offset) + (max($page, 1) - 1) * $this->perPage;
 
 			// Overall limit
 			if ($offset + $limit > $total)
